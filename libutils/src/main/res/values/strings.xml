@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Lib Utils</string>
+    <string name="text_phone_regex">请输入正确的手机号</string>
+</resources>

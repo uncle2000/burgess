@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="TitleView">
+        <attr name="leftText" format="reference|string" />
+        <attr name="rightText" format="reference|string" />
+        <attr name="titleText" format="reference|string" />
+        <attr name="subTitleText" format="reference|string" />
+        <attr name="leftDrawable" format="reference" />
+        <attr name="rightDrawable" format="reference" />
+        <attr name="rightDrawable2" format="reference" />
+        <attr name="showBottomDivider" format="boolean|reference" />
+        <attr name="needFitStatusBar" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="StateView">
+        <attr name="contentView" format="reference" />
+        <attr name="otherView" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ForwardItemView">
+        <attr name="leftItemText" format="reference|string" />
+        <attr name="rightItemText" format="reference|string" />
+        <attr name="rightItemTextHint" format="reference|string" />
+        <attr name="leftItemDrawable" format="reference" />
+        <attr name="rightItemDrawable" format="reference" />
+        <attr name="showDivider" format="boolean" />
+        <attr name="showRightDrawable" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="vericationCodeInput">
+        <attr name="box" format="integer" />
+        <attr name="child_h_padding" format="dimension" />
+        <attr name="child_v_padding" format="dimension" />
+        <attr name="child_width" format="dimension" />
+        <attr name="child_height" format="dimension" />
+        <attr name="padding" format="dimension" />
+        <attr name="box_bg_focus" format="reference" />
+        <attr name="box_bg_normal" format="reference" />
+        <attr name="inputType" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="EditTextCount">
+        <attr name="defLines" format="integer" />
+        <attr name="hintContent" format="string" />
+        <attr name="textSizeContent" format="dimension" />
+        <attr name="textColorContent" format="color" />
+        <attr name="limit" format="integer" />
+        <attr name="textColorCount" format="color" />
+        <attr name="hintColor" format="color" />
+        <attr name="textSizeCount" format="dimension" />
+        <attr name="textColorCountNone" format="color" />
+        <attr name="background" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius"  />
+        <attr name="type">
+            <enum name="circle" value="0" />
+            <enum name="round" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="TagFlowLayout">
+        <attr name="max_select" format="integer"></attr>
+        <attr name="tag_gravity">
+            <enum name="left" value="-1" />
+            <enum name="center" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+</resources>
