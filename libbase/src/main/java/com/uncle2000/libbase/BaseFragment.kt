@@ -10,8 +10,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 import com.trello.rxlifecycle2.components.support.RxFragment
-import com.uncle2000.libutils.RxBus
-import java.util.*
 
 /**
  * 吊炸天的军哥
@@ -23,7 +21,7 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
 
     open fun onBackPressed() = false
     //    protected var dialog: Dialog? = null
-    private var globalListeners: MutableList<RxBus.GlobalListener>? = null
+//    private var globalListeners: MutableList<RxBus.GlobalListener>? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -36,12 +34,12 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
 
 
         // compositeSubscription.clear();
-        if (globalListeners != null) {
-            for (l in globalListeners!!) {
-                RxBus.get().unregisterAll(l)
-            }
-            globalListeners!!.clear()
-        }
+//        if (globalListeners != null) {
+//            for (l in globalListeners!!) {
+////                RxBus.get().unregisterAll(l)
+//            }
+//            globalListeners!!.clear()
+//        }
     }
 
     override fun onDetach() {
@@ -66,12 +64,12 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
     override fun onPause() {
         super.onPause()
 
-        if (globalListeners != null) {
-            for (l in globalListeners!!) {
-                RxBus.get().unregisterAll(l)
-            }
-            globalListeners!!.clear()
-        }
+//        if (globalListeners != null) {
+//            for (l in globalListeners!!) {
+//                RxBus.get().unregisterAll(l)
+//            }
+//            globalListeners!!.clear()
+//        }
     }
 
     fun setViewPadding(vararg views: View) {
@@ -248,14 +246,14 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
      * @param action1
      * @return
      */
-    fun registerEvent(eventId: Int, action1: RxBus.GlobalListener): RxBus.GlobalListener {
-        val listener = RxBus.get().register(eventId, action1)
-        if (globalListeners == null) {
-            globalListeners = ArrayList<RxBus.GlobalListener>()
-        }
-        globalListeners?.add(listener)
-        return listener
-    }
+//    fun registerEvent(eventId: Int, action1: RxBus.GlobalListener): RxBus.GlobalListener {
+//        val listener = RxBus.get().register(eventId, action1)
+//        if (globalListeners == null) {
+//            globalListeners = ArrayList<RxBus.GlobalListener>()
+//        }
+//        globalListeners?.add(listener)
+//        return listener
+//    }
 
 
     fun showFragment(fname: String, args: Bundle?) {
