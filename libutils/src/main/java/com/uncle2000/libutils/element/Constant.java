@@ -18,4 +18,8 @@ public class Constant {
     public static final String NAME = "name";
     public static final String ALIAS = "alias";
     public static final String BOOLEAN = "boolean";
+    public static final String PATH = "PATH";
+    public static final String URL = "url";
+    public static final String URI = "uri";
+    public static final String FULL_SCREEN = "fullScreen";
 }
