@@ -3,6 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
+//启用Jitpack 插件
+apply plugin: 'com.github.dcendents.android-maven'
+
+//设置Jitpack发布的Group
+group='com.github.uncle2000'
+
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
 
@@ -60,4 +66,4 @@ tasks.withType(Javadoc) {
     }
 }
 
-tasks.getByPath(":libutils:releaseAndroidJavadocs").enabled = false
+//tasks.getByPath(":libutils:releaseAndroidJavadocs").enabled = false

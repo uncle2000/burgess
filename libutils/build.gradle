@@ -2,7 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.novoda.bintray-release'
+
+//启用Jitpack 插件
+apply plugin: 'com.github.dcendents.android-maven'
+
+//设置Jitpack发布的Group
+group='com.github.uncle2000'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
@@ -53,15 +58,15 @@ dependencies {
     api 'com.tencent:mmkv:1.0.11'
     api 'com.google.code.gson:gson:2.8.5'
 }
-publish {
-    userOrg = 'uncle2000'
-    groupId = 'com.uncle2000'
-    repoName = 'maven'
-    artifactId = 'LibUtils'
-    publishVersion = '1.0.0'
-    desc = 'util module'
-    website = 'https://github.com/uncle2000'
-}
+//publish {
+//    userOrg = 'uncle2000'
+//    groupId = 'com.uncle2000'
+//    repoName = 'maven'
+//    artifactId = 'LibUtils'
+//    publishVersion = '1.0.0'
+//    desc = 'util module'
+//    website = 'https://github.com/uncle2000'
+//}
 
 tasks.withType(Javadoc) {
     options{ encoding "UTF-8"
