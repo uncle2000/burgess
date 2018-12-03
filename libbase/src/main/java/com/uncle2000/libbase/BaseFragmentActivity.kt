@@ -375,64 +375,25 @@ open class BaseFragmentActivity : RxAppCompatActivity() {
     }
 
     fun showProgressDialog() {
-        showProgressDialog(true)
+        showProgressDialog(true, "请稍等")
     }
 
     fun showProgressDialog(text: String) {
-//        showProgressDialog(false, R.layout.dialog_process, 0, text)
-    }
-
-    protected fun showProgressDialog(layoutID: Int) {
-        showProgressDialog(true, layoutID)
-    }
-
-    fun showProgressDialog(isCancel: Boolean, layoutID: Int) {
-        showProgressDialog(isCancel, layoutID, 0, "")
-    }
-
-    fun showProgressDialog(image: Int, text: Int) {
-//        showProgressDialog(false, R.layout.dialog_process, image, getAny(text))
+        showProgressDialog(true, text)
     }
 
     fun showProgressDialog(isCancel: Boolean) {
-//        showProgressDialog(isCancel, R.layout.dialog_process)
+        showProgressDialog(isCancel, "请稍等")
     }
 
-    fun showProgressDialog(isCancel: Boolean, layoutID: Int, image: Int, text: String) {
-//        try {
-//
-//            if (dialog == null || !dialog!!.isShowing) {
-//                dialog = ProgressDialog(this)
-//                dialog?.show()
-//            }
-//
-//            val loadingView: View = LayoutInflater.from(this).inflate(layoutID, null, false)
-//            dialog?.setContentView(loadingView)
-//
-//
-//            val ivLoading = loadingView.findViewById<ImageView>(R.id.iv_loading)
-//            val tvLoading = loadingView.findViewById<TextView>(R.id.tv_loading)
-//
-//            if (ivLoading != null && image > 0) {
-//                ivLoading.setImageResource(image)
-//            }
-//
-//            if (tvLoading != null) {
-//                tvLoading.text = text
-//            }
-//
-//            dialog?.setCancelable(isCancel)
-//        } catch (ignored: Exception) {
-//
-//        }
-
+    fun showProgressDialog(isCancel: Boolean, text: String) {
         if (tipDialog == null)
             tipDialog = QMUITipDialog.Builder(this)
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
-                .setTipWord("正在加载")
+                .setTipWord(text)
                 .create()
+        tipDialog?.setCancelable(isCancel)
         tipDialog?.show()
-
     }
 
 

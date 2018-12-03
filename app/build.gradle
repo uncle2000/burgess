@@ -4,12 +4,11 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-
 //启用Jitpack 插件
 apply plugin: 'com.github.dcendents.android-maven'
 
 //设置Jitpack发布的Group
-group='com.github.uncle2000'
+group = 'com.github.uncle2000'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
@@ -28,6 +27,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
     lintOptions {
         abortOnError false
     }
@@ -35,12 +44,19 @@ android {
 
 dependencies {
     api "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api project(':libbase')
 }
 
 tasks.withType(Javadoc) {
-    options{ encoding "UTF-8"
+    options {
+        encoding "UTF-8"
         charSet 'UTF-8'
         links "http://docs.oracle.com/javase/7/docs/api"
     }
+}
+repositories {
+    mavenCentral()
 }
 //tasks.getByPath(":libbase:releaseAndroidJavadocs").enabled = false
