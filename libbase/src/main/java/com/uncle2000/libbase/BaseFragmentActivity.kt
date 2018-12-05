@@ -52,7 +52,7 @@ open class BaseFragmentActivity : RxAppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Density.setDefault(this)
+//        Density.setOrientation(this, HEIGHT)
         if (intent.hasExtra("isFullScreen") && intent.getBooleanExtra("isFullScreen", false)) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             window.setFlags(
