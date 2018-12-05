@@ -2,6 +2,7 @@ package com.uncle2000.libbase
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -62,6 +63,8 @@ open class BaseFragmentActivity : RxAppCompatActivity() {
         }
         setContentView(R.layout.activity_empty_container)
         setBackColor()
+
+        println("============================== act creat")
         onNewIntent(intent)
     }
 
@@ -75,6 +78,7 @@ open class BaseFragmentActivity : RxAppCompatActivity() {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
 
+        println("================================ act new intent")
         if (intent != null) {
             if (intent.hasExtra("fname")) {
                 showFragment(intent.getStringExtra("fname"), intent.getBundleExtra("args"))
