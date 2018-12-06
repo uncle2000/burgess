@@ -2,7 +2,6 @@ package com.uncle2000.libbase
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -15,6 +14,9 @@ import android.view.inputmethod.InputMethodManager
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import com.uncle2000.libbase.MyContextWrapper.*
+import com.uncle2000.libutils.SharedValueUtils
+import java.util.*
 
 /**
  * 吊炸天的军哥
@@ -64,8 +66,20 @@ open class BaseFragmentActivity : RxAppCompatActivity() {
         setContentView(R.layout.activity_empty_container)
         setBackColor()
 
-        println("============================== act creat")
         onNewIntent(intent)
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        // .. create or get your new Locale object here.
+        val language = SharedValueUtils.getAny(LANGUAGE, 0)
+        val newLocale: Locale = when (language) {
+            LANGUAGE_CHINA -> Locale.SIMPLIFIED_CHINESE
+            LANGUAGE_ENGLISH -> Locale.ENGLISH
+            LANGUAGE_HK -> Locale.TRADITIONAL_CHINESE
+            else -> Locale.getDefault()
+        }
+        val context = MyContextWrapper.wrap(newBase, newLocale)
+        super.attachBaseContext(context)
     }
 
     private fun setBackColor() {
@@ -77,8 +91,6 @@ open class BaseFragmentActivity : RxAppCompatActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-
-        println("================================ act new intent")
         if (intent != null) {
             if (intent.hasExtra("fname")) {
                 showFragment(intent.getStringExtra("fname"), intent.getBundleExtra("args"))
