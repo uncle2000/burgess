@@ -133,8 +133,10 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        if (System.currentTimeMillis() - lastClickTime > clickFrequency) {
+        if (System.currentTimeMillis() - lastClickTime < clickFrequency) {
             return
+        } else {
+            lastClickTime = System.currentTimeMillis()
         }
     }
 
