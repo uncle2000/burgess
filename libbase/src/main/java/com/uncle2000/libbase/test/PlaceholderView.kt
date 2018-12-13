@@ -15,17 +15,17 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.uncle2000.libbase.R
 
 class PlaceholderView<T> @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private var currentState = STATE_NONE
     var phAdapter: RecyclerViewAdapter<T>? = null
     val recyclerView: RecyclerView by lazy {
         return@lazy findViewById<RecyclerView>(R.id.recycler_view)
     }
-    private val smartRefreshLayout: SmartRefreshLayout by lazy {
+    val smartRefreshLayout: SmartRefreshLayout by lazy {
         return@lazy findViewById<SmartRefreshLayout>(R.id.smart_refresh_layout)
     }
-    private var phView: ViewGroup
+    var phView: ViewGroup
     val dataList: MutableList<T> = ArrayList()
     var noneLayoutId = R.layout.placeholder_state_container
         set(value) {
@@ -48,7 +48,7 @@ class PlaceholderView<T> @JvmOverloads constructor(
         recyclerView.adapter = phAdapter
     }
 
-    private fun changeState(state: Int) {
+    fun changeState(state: Int) {
         when (state) {
             STATE_CONTENT -> {
             }
@@ -125,7 +125,7 @@ class PlaceholderView<T> @JvmOverloads constructor(
         }
     }
 
-    private fun canLoadMore(canLoadMore: Boolean) {
+    public fun canLoadMore(canLoadMore: Boolean) {
         smartRefreshLayout.isEnableLoadMore = canLoadMore
     }
 

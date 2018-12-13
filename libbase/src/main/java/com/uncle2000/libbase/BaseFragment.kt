@@ -16,12 +16,11 @@ import com.trello.rxlifecycle2.components.support.RxFragment
  * 公元前3000年
  */
 abstract class BaseFragment : RxFragment(), View.OnClickListener {
-    //    var progressDialog: Dialog? = null
     var tipDialog: QMUITipDialog? = null
+    var clickFrequency = 500
+    var lastClickTime: Long = 0
 
     open fun onBackPressed() = false
-    //    protected var dialog: Dialog? = null
-//    private var globalListeners: MutableList<RxBus.GlobalListener>? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -31,15 +30,6 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
 
     override fun onDestroy() {
         super.onDestroy()
-
-
-        // compositeSubscription.clear();
-//        if (globalListeners != null) {
-//            for (l in globalListeners!!) {
-////                RxBus.get().unregisterAll(l)
-//            }
-//            globalListeners!!.clear()
-//        }
     }
 
     override fun onDetach() {
@@ -59,21 +49,6 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         hideInput()
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-//        if (globalListeners != null) {
-//            for (l in globalListeners!!) {
-//                RxBus.get().unregisterAll(l)
-//            }
-//            globalListeners!!.clear()
-//        }
-    }
-
-    fun setViewPadding(vararg views: View) {
-//        TitleView.setViewPadding(activity, *views)
     }
 
     fun showProgressDialog() {
@@ -97,7 +72,6 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
         tipDialog?.setCancelable(isCancel)
         tipDialog?.show()
     }
-
 
     fun dismissDialog() {
         if (tipDialog != null) {
@@ -124,27 +98,7 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
         if (null == message || message.trim { it <= ' ' }.isEmpty()) {
             return
         }
-//        if (activity != null) {
-//            showToast(message)
-//        }
     }
-
-//    private fun showToast(msg: String?) {
-//        if (null == msg || msg.isEmpty())
-//            return
-//        val inflate = LayoutInflater.from(activity)
-//        val toastView: View
-//        toastView = inflate.inflate(R.layout.view_toast_middle2, null)
-//
-//        val toastTv = toastView.findViewById<TextView>(R.id.toast_tv)
-//        toastTv.text = msg
-//        val toast = Toast(activity)
-//        toast.view = toastView
-//        toast.duration = Toast.LENGTH_LONG
-//        toast.setGravity(Gravity.CENTER, 0, 0)
-//
-//        toast.show()
-//    }
 
     fun finish() {
         val activity = activity as BaseFragmentActivity? ?: return
@@ -179,17 +133,15 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-
+        if (System.currentTimeMillis() - lastClickTime > clickFrequency) {
+            return
+        }
     }
 
 
     open fun onFragmentResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
     }
-
-//    fun setResult(resultCode: Int, data: Intent? = null) {
-//        activity?.setResult(resultCode, data)
-//    }
 
     fun setResult(result: Int) {
         setResult(result, null)
