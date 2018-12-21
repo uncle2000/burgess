@@ -4,20 +4,13 @@ package com.uncle2000.libnet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.uncle2000.libutils.L;
-import com.uncle2000.libutils.SharedValueUtils;
-
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.uncle2000.libutils.element.Constant.TOKEN;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Danger
@@ -44,8 +37,8 @@ public class HttpUtil {
                 .addInterceptor(loggingInterceptor)
                 .addInterceptor(chain -> {
                     Request request = chain.request().newBuilder()
-                            .addHeader("Content-Type", "application/json")
-                            .addHeader("token", SharedValueUtils.INSTANCE.getString(TOKEN, ""))
+//                            .addHeader("Content-Type", "application/json")
+//                            .addHeader("token", SharedValueUtils.INSTANCE.getString(TOKEN, ""))
                             .build();
                     return chain.proceed(request);
                 })
@@ -55,7 +48,7 @@ public class HttpUtil {
                 .client(client)
                 .baseUrl(host)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
         return retrofit.create(cls);

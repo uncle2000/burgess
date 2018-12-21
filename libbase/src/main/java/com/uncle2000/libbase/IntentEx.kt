@@ -20,5 +20,4 @@ fun Bundle.putSerializableList(key: String, list: List<Serializable>?) = list?.l
 
 fun Bundle.getSerializableList(key: String) = (getSerializable(key) as SerializableListHolder?)?.list
 
-
 data class SerializableListHolder(var list: List<Serializable>? = null) : Serializable
