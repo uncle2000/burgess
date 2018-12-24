@@ -39,5 +39,10 @@
 
     <color name="gray_et_bg">#ededee</color><!-- C9 -->
 
+    <color name="defaults_title_text_color">#FF101010</color>
+    <color name="defaults_sub_title_text_color">#FF696969</color>
+    <color name="defaults_other_title_text_color">#FF333333</color>
+    <color name="defaults_white_text_color">#FFffffff</color>
+    <color name="defaults_divider_color">#FFf4f4f4</color>
 
 </resources>

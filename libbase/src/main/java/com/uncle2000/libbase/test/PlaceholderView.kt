@@ -15,7 +15,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.uncle2000.libbase.R
 
 class PlaceholderView<T> @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private var currentState = STATE_NONE
     var phAdapter: RecyclerViewAdapter<T>? = null
@@ -82,7 +82,7 @@ class PlaceholderView<T> @JvmOverloads constructor(
         phAdapter?.notifyDataSetChanged()
 
         loadFinish()
-        canLoadMore(!loadFinished)
+        canLoadMore(smartRefreshLayout.isEnableLoadMore && !loadFinished)
         if (this.dataList.isEmpty())
             changeState(STATE_EMPTY)
         else

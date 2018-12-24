@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-    <declare-styleable name="TitleView">
-        <attr name="leftText" format="reference|string" />
-        <attr name="rightText" format="reference|string" />
-        <attr name="titleText" format="reference|string" />
-        <attr name="subTitleText" format="reference|string" />
-        <attr name="leftDrawable" format="reference" />
-        <attr name="rightDrawable" format="reference" />
-        <attr name="rightDrawable2" format="reference" />
-        <attr name="showBottomDivider" format="boolean|reference" />
-        <attr name="needFitStatusBar" format="boolean" />
-    </declare-styleable>
-
-
     <declare-styleable name="StateView">
         <attr name="contentView" format="reference" />
         <attr name="otherView" format="reference" />
@@ -57,7 +43,7 @@
 
 
     <declare-styleable name="RoundImageView">
-        <attr name="borderRadius"  />
+        <attr name="borderRadius" />
         <attr name="type">
             <enum name="circle" value="0" />
             <enum name="round" value="1" />
@@ -72,5 +58,45 @@
         </attr>
     </declare-styleable>
 
+
+    <declare-styleable name="TitleView">
+        <attr name="leftDrawable" format="reference" />
+        <attr name="rightDrawable" format="reference" />
+        <attr name="rightDrawable2" format="reference" />
+
+        <attr name="leftText" format="reference|string" />
+        <attr name="rightText" format="reference|string" />
+        <attr name="right2Text" format="reference|string" />
+        <attr name="titleText" format="reference|string" />
+        <attr name="subTitleText" format="reference|string" />
+
+        <attr name="leftTextSize" format="dimension" />
+        <attr name="rightTextSize" format="dimension" />
+        <attr name="right2TextSize" format="dimension" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="subTitleTextSize" format="dimension" />
+
+        <attr name="leftTextColor" format="reference|color" />
+        <attr name="rightTextColor" format="reference|color" />
+        <attr name="right2TextColor" format="reference|color" />
+        <attr name="titleTextColor" format="reference|color" />
+        <attr name="subTitleTextColor" format="reference|color" />
+
+        <attr name="backgroundColor" format="reference|color" />
+        <attr name="dividerColor" format="reference|color" />
+
+        <attr name="showBottomDivider" format="boolean|reference" />
+        <attr name="needFitStatusBar" format="boolean" />
+        <attr name="leftVisibility" format="boolean" />
+        <attr name="rightVisibility" format="boolean" />
+        <attr name="right2Visibility" format="boolean" />
+        <attr name="titleHeight" format="dimension" />
+        <attr name="titlePaddingTop" format="dimension" />
+
+        <attr name="colorMode">
+            <enum name="white" value="1" />
+            <enum name="black" value="2" />
+        </attr>
+    </declare-styleable>
 
 </resources>

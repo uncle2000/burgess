@@ -102,8 +102,8 @@ abstract class ListFragment<T> : BaseFragment() {
             if (rootView.findViewById<View>(R.id.title_view) != null)
                 titleView = rootView.findViewById<View>(R.id.title_view) as TitleView
             placeholderView = rootView.findViewById<View>(R.id.placeholder_view) as PlaceholderView<T>
-            placeholderView.setOnRefreshListener(this)
-            placeholderView.setOnLoadMoreListener(this)
+            setOnRefreshListener()
+            setOnLoadMoreListener()
             if (noneLayoutId > 0) {
                 placeholderView.noneLayoutId = noneLayoutId
             }
@@ -116,6 +116,31 @@ abstract class ListFragment<T> : BaseFragment() {
             if (noNetLayoutId > 0) {
                 placeholderView.noNetLayoutId = noNetLayoutId
             }
+        }
+
+        fun setCanLoadMore(b: Boolean) {
+            placeholderView.canLoadMore(b)
+        }
+
+        fun setCanRefresh(b: Boolean) {
+            placeholderView.smartRefreshLayout.isEnableRefresh = b
+        }
+
+        fun setOnRefreshListener() {
+            placeholderView.setOnRefreshListener(this)
+        }
+
+        fun setOnRefreshListener(l: OnRefreshListener) {
+            placeholderView.setOnRefreshListener(l)
+        }
+
+
+        fun setOnLoadMoreListener() {
+            placeholderView.setOnLoadMoreListener(this)
+        }
+
+        fun setOnRefreshListener(l: OnLoadMoreListener) {
+            placeholderView.setOnLoadMoreListener(l)
         }
 
         override fun onRefresh(refreshLayout: RefreshLayout) {
