@@ -43,7 +43,7 @@ object SharedValueUtils {
         kv.removeValueForKey(key)
     }
 
-    fun <T> getObj(key: String, classOfT: Class<T>): T? {
+    fun <T>  getObj(key: String, classOfT: Class<T>): T? {
         val kv = MMKV.defaultMMKV()
         val jsonString = kv.decodeString(key)
         if (jsonString.isNullOrEmpty())

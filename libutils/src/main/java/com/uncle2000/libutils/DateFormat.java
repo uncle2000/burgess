@@ -3,6 +3,7 @@ package com.uncle2000.libutils;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateFormat {
     public static final int YEAR_TIME = 1000;
@@ -33,6 +34,9 @@ public class DateFormat {
     public final static SimpleDateFormat sdf_16 = new SimpleDateFormat("HH:mm");
     public final static SimpleDateFormat sdf_17 = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
     public final static SimpleDateFormat sdf_18 = new SimpleDateFormat("MM-dd HH:mm");
+    public final static SimpleDateFormat sdf_22 = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
+    public final static SimpleDateFormat sdf_23 = new SimpleDateFormat("yyyy-MM-dd HH:mm a", Locale.ENGLISH);
+
     static Calendar c = Calendar.getInstance();
     //	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     //	private static SimpleDateFormat stf = new SimpleDateFormat("HHmm");
@@ -147,6 +151,14 @@ public class DateFormat {
     public static String dateToString21(long date) {
         // c.setTimeInMillis(date);
         return sdf_21.format(new Date(date));
+    }
+
+    public static String dateToString22(long date) {
+        return sdf_22.format(new Date(date));
+    }
+
+    public static String dateToString23(long date) {
+        return sdf_23.format(new Date(date));
     }
 
     public static int dateToshijiancha(long date) {
@@ -445,12 +457,41 @@ public class DateFormat {
                 && calendarNow.get(Calendar.DATE) == calendarThatDay.get(Calendar.DATE);
     }
 
-    // public static void main(String[] sa) {
-    //     System.out.println("isToday " + isToday(System.currentTimeMillis()));
-    //     System.out.println("isToday " + isToday(System.currentTimeMillis() - 11 * 3600000));
-    //
-    //     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis()));
-    //     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis() - 11 * 3600000));
-    //     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis() - 35 * 3600000));
-    // }
+
+    /**
+     * 判断日期是否为同一天
+     *
+     * @return
+     */
+    public static boolean isSameDay(long date, long currentDate) {
+        Date time = new Date(date);
+        Date currentTime = new Date(currentDate);
+
+        Calendar nowCalendar = Calendar.getInstance();
+
+        nowCalendar.setTime(currentTime);
+
+        Calendar dateCalendar = Calendar.getInstance();
+
+        dateCalendar.setTime(time);
+
+        if (nowCalendar.get(Calendar.YEAR) == dateCalendar.get(Calendar.YEAR)
+
+                && nowCalendar.get(Calendar.MONTH) == dateCalendar.get(Calendar.MONTH)
+
+                && nowCalendar.get(Calendar.DATE) == dateCalendar.get(Calendar.DATE)) {
+
+            return true;
+
+        }
+        return false;
+    }
+// public static void main(String[] sa) {
+//     System.out.println("isToday " + isToday(System.currentTimeMillis()));
+//     System.out.println("isToday " + isToday(System.currentTimeMillis() - 11 * 3600000));
+//
+//     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis()));
+//     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis() - 11 * 3600000));
+//     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis() - 35 * 3600000));
+// }
 }

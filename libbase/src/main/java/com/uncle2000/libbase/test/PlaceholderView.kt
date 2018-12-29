@@ -69,13 +69,26 @@ class PlaceholderView<T> @JvmOverloads constructor(
     open fun getPhLayoutId() = R.layout.placeholder_shell
 
     //状态------------------------------------------------------------------------------
-    fun loadDataFinish(isRefresh: Boolean, dataList: List<T>?, loadFinished: Boolean) {
+    fun loadDataFinish(isRefresh: Boolean, dataList: List<T>?, loadFinished: Boolean, loadFromBottom: Boolean) {
         if (isRefresh) {
             this.dataList.clear()
         }
-
         if (dataList != null) {
-            this.dataList.addAll(dataList)
+            if (loadFromBottom)
+                this.dataList.addAll(dataList)
+            else
+                this.dataList.addAll(0, dataList)
+        }
+
+        phAdapter?.data = this.dataList
+        if (isRefresh) {
+            phAdapter?.notifyDataSetChanged()
+        } else if (dataList != null) {
+            if (loadFromBottom) {
+                phAdapter?.notifyItemRangeChanged(this.dataList.size - dataList.size, dataList.size)
+            } else {
+                phAdapter?.notifyItemRangeChanged(0, dataList.size)
+            }
         }
 
         phAdapter?.data = this.dataList

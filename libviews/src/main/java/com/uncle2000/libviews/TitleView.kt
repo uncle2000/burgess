@@ -71,6 +71,7 @@ class TitleView @JvmOverloads constructor(
                 val attr = a.getIndex(i)
                 when (attr) {
                     R.styleable.TitleView_colorMode -> colorMode = a.getInt(attr, colorMode)
+                    R.styleable.TitleView_needFitStatusBar -> needFitStatusBar = a.getBoolean(attr, true)
                     R.styleable.TitleView_titleHeight -> titleHeight = a.getDimension(attr, titleHeight.toFloat()).toInt()
                     R.styleable.TitleView_titlePaddingTop -> titlePaddingTop = a.getDimension(attr, titlePaddingTop.toFloat()).toInt()
                 }
@@ -90,10 +91,10 @@ class TitleView @JvmOverloads constructor(
                                 LayoutParams.MATCH_PARENT, titlePaddingTop)
                     root.layoutParams = ConstraintLayout.LayoutParams(LayoutParams.MATCH_PARENT, titleHeight + titlePaddingTop)
                 }
-
                 when (colorMode) {
                     TYPE_WHITE -> {
-                        QMUIStatusBarHelper.setStatusBarDarkMode(context as Activity)
+                        if (needFitStatusBar)
+                            QMUIStatusBarHelper.setStatusBarDarkMode(context as Activity)
                         leftDrawable = ContextCompat.getDrawable(context, R.drawable.svg_arrow_left_white)
                         leftTextColor = ContextCompat.getColor(context, R.color.defaults_white_text_color)
                         rightTextColor = ContextCompat.getColor(context, R.color.defaults_white_text_color)
@@ -102,7 +103,8 @@ class TitleView @JvmOverloads constructor(
                         subTitleTextColor = ContextCompat.getColor(context, R.color.defaults_white_text_color)
                     }
                     TYPE_BLACK -> {
-                        QMUIStatusBarHelper.setStatusBarLightMode(context as Activity)
+                        if (needFitStatusBar)
+                            QMUIStatusBarHelper.setStatusBarLightMode(context as Activity)
                         leftDrawable = ContextCompat.getDrawable(context, R.drawable.svg_arrow_left_black)
                         leftTextColor = ContextCompat.getColor(context, R.color.defaults_title_text_color)
                         rightTextColor = ContextCompat.getColor(context, R.color.defaults_other_title_text_color)
@@ -141,7 +143,6 @@ class TitleView @JvmOverloads constructor(
                     R.styleable.TitleView_leftVisibility -> leftVisibility = a.getBoolean(attr, true)
                     R.styleable.TitleView_rightVisibility -> rightVisibility = a.getBoolean(attr, false)
                     R.styleable.TitleView_right2Visibility -> right2Visibility = a.getBoolean(attr, false)
-                    R.styleable.TitleView_needFitStatusBar -> needFitStatusBar = a.getBoolean(attr, true)
                 }
             }
             a.recycle()

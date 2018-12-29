@@ -10,7 +10,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.uncle2000.libbase.BaseFragment
 import com.uncle2000.libbase.R
 import com.uncle2000.libviews.TitleView
-import java.util.*
 
 abstract class ListFragment<T> : BaseFragment() {
     private var loading: Boolean = false
@@ -22,8 +21,6 @@ abstract class ListFragment<T> : BaseFragment() {
     var noNetLayoutId = 0
     protected var page = 1
     protected var size = 10
-
-    protected var dataList: MutableList<T> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         lFHolder = LFHolder(inflater, getLayoutId())
@@ -43,24 +40,19 @@ abstract class ListFragment<T> : BaseFragment() {
         if (dataList != null) {
             loadFinish = dataList.size < size
         }
-        loadDataFinish(isRefresh, dataList, loadFinish)
+
+        loadDataFinish(isRefresh, dataList, loadFinish, true)
     }
 
-    protected fun loadDataFinish(isRefresh: Boolean, dataList: List<T>?, loadFinish: Boolean) {
+    protected fun loadDataFinish(isRefresh: Boolean, dataList: List<T>?, loadFinish: Boolean, loadFromBottom: Boolean) {
         loading = false
-        if (isRefresh) {
-            this.dataList.clear()
-        }
-        if (dataList != null) {
-            this.dataList.addAll(dataList)
-            page++
-        }
         if (dataList == null)
-            lFHolder?.placeholderView?.loadDataFinish(isRefresh, dataList, true)
+            lFHolder?.placeholderView?.loadDataFinish(isRefresh, dataList, true, loadFromBottom)
         else
-            lFHolder?.placeholderView?.loadDataFinish(isRefresh, dataList, loadFinish)
-
+            lFHolder?.placeholderView?.loadDataFinish(isRefresh, dataList, loadFinish, loadFromBottom)
     }
+
+    fun getDataList() = lFHolder?.placeholderView?.dataList!!
 
 
     protected fun loadDataFailed() {
