@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.constant.RefreshState
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
@@ -35,6 +37,13 @@ class PlaceholderView<T> @JvmOverloads constructor(
     var failLayoutId = R.layout.placeholder_state_fail
     var noNetLayoutId = R.layout.placeholder_state_no_net
 
+    var emptyText: String = "没有内容"
+    var failText: String = "数据获取失败"
+    var noNetText: String = "数据获取失败"
+    var emptyImage: Int = R.drawable.no_data
+    var failImage: Int = R.drawable.no_data
+    var noNetImage: Int = R.drawable.no_net
+
     init {
         LayoutInflater.from(context).inflate(getPhLayoutId(), this, true)
         phView = View.inflate(context, noneLayoutId, null) as ViewGroup
@@ -53,10 +62,24 @@ class PlaceholderView<T> @JvmOverloads constructor(
             STATE_CONTENT -> {
             }
             STATE_NONE -> phView.removeAllViews()
-            STATE_LOADING -> phView.addView(View.inflate(context, emptyLayoutId, null))
-            STATE_EMPTY -> phView.addView(View.inflate(context, emptyLayoutId, null))
-            STATE_FAIL -> phView.addView(View.inflate(context, failLayoutId, null))
-            STATE_NO_NETWORK -> phView.addView(View.inflate(context, noNetLayoutId, null))
+            STATE_LOADING -> {
+                phView.addView(View.inflate(context, emptyLayoutId, null))
+            }
+            STATE_EMPTY -> {
+                phView.addView(View.inflate(context, emptyLayoutId, null))
+                phView.findViewById<TextView>(R.id.text).text = emptyText
+                phView.findViewById<ImageView>(R.id.image).setImageResource(emptyImage)
+            }
+            STATE_FAIL -> {
+                phView.addView(View.inflate(context, failLayoutId, null))
+                phView.findViewById<TextView>(R.id.text).text = failText
+                phView.findViewById<ImageView>(R.id.image).setImageResource(failImage)
+            }
+            STATE_NO_NETWORK -> {
+                phView.addView(View.inflate(context, noNetLayoutId, null))
+                phView.findViewById<TextView>(R.id.text).text = noNetText
+                phView.findViewById<ImageView>(R.id.image).setImageResource(noNetImage)
+            }
         }
         if (state != STATE_CONTENT) {
             dataList.clear()
@@ -148,6 +171,27 @@ class PlaceholderView<T> @JvmOverloads constructor(
 
     fun setOnLoadMoreListener(listener: OnLoadMoreListener) {
         smartRefreshLayout.setOnLoadMoreListener(listener)
+    }
+
+    fun setEmpty(text: String, drawable: Int = 0) {
+        if (text.isNotEmpty())
+            emptyText = text
+        if (drawable > 0)
+            emptyImage = drawable
+    }
+
+    fun setFail(text: String, drawable: Int = 0) {
+        if (text.isNotEmpty())
+            failText = text
+        if (drawable > 0)
+            failImage = drawable
+    }
+
+    fun setNoNet(text: String, drawable: Int = 0) {
+        if (text.isNotEmpty())
+            noNetText = text
+        if (drawable > 0)
+            noNetImage = drawable
     }
 
 }

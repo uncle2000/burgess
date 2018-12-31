@@ -36,6 +36,8 @@ public class DateFormat {
     public final static SimpleDateFormat sdf_18 = new SimpleDateFormat("MM-dd HH:mm");
     public final static SimpleDateFormat sdf_22 = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
     public final static SimpleDateFormat sdf_23 = new SimpleDateFormat("yyyy-MM-dd HH:mm a", Locale.ENGLISH);
+    public final static SimpleDateFormat sdf_24 = new SimpleDateFormat("dd-MM HH:mm a", Locale.ENGLISH);
+
 
     static Calendar c = Calendar.getInstance();
     //	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -159,6 +161,10 @@ public class DateFormat {
 
     public static String dateToString23(long date) {
         return sdf_23.format(new Date(date));
+    }
+
+    public static String dateToString24(long date) {
+        return sdf_24.format(new Date(date));
     }
 
     public static int dateToshijiancha(long date) {
@@ -486,12 +492,23 @@ public class DateFormat {
         }
         return false;
     }
-// public static void main(String[] sa) {
-//     System.out.println("isToday " + isToday(System.currentTimeMillis()));
-//     System.out.println("isToday " + isToday(System.currentTimeMillis() - 11 * 3600000));
-//
-//     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis()));
-//     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis() - 11 * 3600000));
-//     System.out.println("isYesterday " + isYesterday(System.currentTimeMillis() - 35 * 3600000));
-// }
+
+
+    /**
+     * 判断是不是一天以前
+     *
+     * @param date
+     * @return
+     */
+    public static String isOneDayBefore(long date) {
+        if (System.currentTimeMillis() - date > 86400000) {
+            return dateToString24(date);
+        } else if (System.currentTimeMillis() - date < 86400000 && System.currentTimeMillis() - date > 3600000) {
+            long l = (System.currentTimeMillis() - date) / 1000 / 60 / 60;
+            return l + App.getInstance().getString(R.string.hour_before);
+        } else {
+            return App.getInstance().getString(R.string.just_now);
+        }
+    }
+
 }
