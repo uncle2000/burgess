@@ -65,10 +65,6 @@ abstract class ListFragment<T> : BaseFragment() {
     protected abstract fun doLoadData(isRefresh: Boolean, currentSize: Int)
 
     protected fun loadData(isRefresh: Boolean, currentSize: Int) {
-//        if (holder?.recyclerView?.isRefreshing != true && (adapter == null || adapter?.itemCount == 0)) {
-//            holder?.stateView?.showLoadingView(0, 0)
-//        }
-
         if (isRefresh)
             page = 1
         doLoadData(isRefresh, currentSize)
@@ -84,6 +80,9 @@ abstract class ListFragment<T> : BaseFragment() {
 
     protected fun <V : View> findViewById(int: Int) = lFHolder?.rootView?.findViewById<V>(int)
 
+    protected fun setNeedNotify(b: Boolean) {
+        lFHolder?.placeholderView?.ifNeedNotify = b
+    }
 
     inner class LFHolder(inflater: LayoutInflater, layoutId: Int) : OnRefreshListener, OnLoadMoreListener {
         var rootView: View = inflater.inflate(layoutId, null)

@@ -37,6 +37,8 @@ public class DateFormat {
     public final static SimpleDateFormat sdf_22 = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
     public final static SimpleDateFormat sdf_23 = new SimpleDateFormat("yyyy-MM-dd HH:mm a", Locale.ENGLISH);
     public final static SimpleDateFormat sdf_24 = new SimpleDateFormat("dd-MM HH:mm a", Locale.ENGLISH);
+    public final static SimpleDateFormat sdf_25 = new SimpleDateFormat("dd-MM-yyyy");
+    public final static SimpleDateFormat sdf_26 = new SimpleDateFormat("dd-MM");
 
 
     static Calendar c = Calendar.getInstance();
@@ -165,6 +167,14 @@ public class DateFormat {
 
     public static String dateToString24(long date) {
         return sdf_24.format(new Date(date));
+    }
+
+    public static String dateToString25(long date) {
+        return sdf_25.format(new Date(date));
+    }
+
+    public static String dateToString26(long date) {
+        return sdf_26.format(new Date(date));
     }
 
     public static int dateToshijiancha(long date) {
@@ -467,18 +477,16 @@ public class DateFormat {
     /**
      * 判断日期是否为同一天
      *
-     * @return
+     * @return -1是去年 0是当天前 1是当天
      */
-    public static boolean isSameDay(long date, long currentDate) {
+    public static int isSameDay(long date) {
         Date time = new Date(date);
-        Date currentTime = new Date(currentDate);
+        Date currentTime = new Date(System.currentTimeMillis());
 
         Calendar nowCalendar = Calendar.getInstance();
-
         nowCalendar.setTime(currentTime);
 
         Calendar dateCalendar = Calendar.getInstance();
-
         dateCalendar.setTime(time);
 
         if (nowCalendar.get(Calendar.YEAR) == dateCalendar.get(Calendar.YEAR)
@@ -487,10 +495,17 @@ public class DateFormat {
 
                 && nowCalendar.get(Calendar.DATE) == dateCalendar.get(Calendar.DATE)) {
 
-            return true;
+            return 1;
+        }else if (nowCalendar.get(Calendar.YEAR) != dateCalendar.get(Calendar.YEAR)) {
+            return -1;
+        }else if (nowCalendar.get(Calendar.YEAR) == dateCalendar.get(Calendar.YEAR)
 
+                && nowCalendar.get(Calendar.MONTH) == dateCalendar.get(Calendar.MONTH)
+
+                && nowCalendar.get(Calendar.DATE) != dateCalendar.get(Calendar.DATE)) {
+            return 0;
         }
-        return false;
+        return -1;
     }
 
 

@@ -29,6 +29,7 @@ class PlaceholderView<T> @JvmOverloads constructor(
     }
     var phView: ViewGroup
     val dataList: MutableList<T> = ArrayList()
+    var ifNeedNotify = true
     var noneLayoutId = R.layout.placeholder_state_container
         set(value) {
             phView = View.inflate(context, value, null) as ViewGroup
@@ -104,18 +105,20 @@ class PlaceholderView<T> @JvmOverloads constructor(
         }
 
         phAdapter?.data = this.dataList
-        if (isRefresh) {
-            phAdapter?.notifyDataSetChanged()
-        } else if (dataList != null) {
-            if (loadFromBottom) {
-                phAdapter?.notifyItemRangeChanged(this.dataList.size - dataList.size, dataList.size)
-            } else {
-                phAdapter?.notifyItemRangeChanged(0, dataList.size)
+        if (ifNeedNotify) {
+            if (isRefresh) {
+                phAdapter?.notifyDataSetChanged()
+            } else if (dataList != null) {
+                if (loadFromBottom) {
+                    phAdapter?.notifyItemRangeChanged(this.dataList.size - dataList.size, dataList.size)
+                } else {
+                    phAdapter?.notifyItemRangeChanged(0, dataList.size)
+                }
             }
         }
 
-        phAdapter?.data = this.dataList
-        phAdapter?.notifyDataSetChanged()
+//        phAdapter?.data = this.dataList
+//        phAdapter?.notifyDataSetChanged()
 
         loadFinish()
         canLoadMore(smartRefreshLayout.isEnableLoadMore && !loadFinished)

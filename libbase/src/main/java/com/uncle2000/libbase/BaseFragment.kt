@@ -20,7 +20,7 @@ abstract class BaseFragment : RxFragment(), View.OnClickListener {
     var clickFrequency = 500
     var lastClickTime: Long = 0
 
-    open fun onBackPressed() = false
+//    open fun onBackPressed() = false
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
