@@ -63,6 +63,8 @@ public class SlidingButtonView extends HorizontalScrollView {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        if (!slidEnable)
+            return false;
         if (!slidEnable) return super.onTouchEvent(ev);
         int action = ev.getAction();
         switch (action) {
