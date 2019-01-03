@@ -1,1 +1,1 @@
-include ':app', ':libviews', ':libutils', ':libbase', ':libnet', ':libimagecache'
+include ':app',':libbase'

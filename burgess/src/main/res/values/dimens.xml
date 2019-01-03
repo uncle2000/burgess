@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dividing_line_height">1px</dimen>
+
+    <dimen name="item_margin">20dp</dimen>
+    <dimen name="windowPaddingLeft">16dp</dimen>
+    <dimen name="widgetNormalMargin">15dp</dimen>
+
+    <!-- button -->
+    <dimen name="button_height_narmal">24dp</dimen>
+
+
+    <dimen name="login_margin_left_right">25dp</dimen>
+
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="item_margin_small">9dp</dimen>
+    <dimen name="item_margin_internal">12dp</dimen>
+
+    <dimen name="title_bar_height">44dp</dimen>
+    <dimen name="title_button_size">48dp</dimen>
+    <dimen name="window_padding_top">15dp</dimen>
+    <dimen name="window_padding_left">15dp</dimen>
+    <dimen name="window_padding_left_big">25dp</dimen>
+    <dimen name="edit_box_height">40dp</dimen>
+
+
+    <dimen name="button_height">44dp</dimen>
+    <dimen name="page_indicator_height">2dp</dimen>
+    <dimen name="chat_panel_icon_size">59dp</dimen>
+    <dimen name="chat_session_item_height">75dp</dimen>
+    <dimen name="chat_session_avatar_size">50dp</dimen>
+    <dimen name="tab_height_level1">40dp</dimen>
+    <dimen name="tab_height_level2">40dp</dimen>
+    <dimen name="tab_height_level1_divider">20dp</dimen>
+    <dimen name="filter_item_height">29dp</dimen>
+
+
+    <dimen name="dialog_title_text_size">17sp</dimen>
+    <dimen name="dialog_message_text_size">16sp</dimen>
+    <dimen name="dialog_title_margin_top">20dp</dimen>
+    <dimen name="dialog_message_margin_top">28dp</dimen>
+    <dimen name="dialog_button_height">50dp</dimen>
+    <dimen name="dialog_input_et_width">165dp</dimen>
+    <dimen name="dialog_input_et_height">40dp</dimen>
+    <dimen name="button_corner_size">3dp</dimen>
+
+
+
+    <dimen name="dialog_button_text_size">16sp</dimen>
+    <dimen name="dialog_message_min_height">95dp</dimen>
+    <dimen name="notification_number_size">14dp</dimen>
+
+    <dimen name="button_radius">5dp</dimen>
+
+</resources>

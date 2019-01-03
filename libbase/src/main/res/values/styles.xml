@@ -1,69 +1,108 @@
 <resources>
-
-    <style name="AppTheme" parent="@style/BaseAppTheme" />
-
-    <!--MX5 拍照闪屏问题 windowTranslucentStatus必须为false-->
-    <style name="BaseAppTheme" parent="QMUI.Compat.NoActionBar">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:dialogTheme">@style/DialogTheme</item>
-        <item name="android:alertDialogTheme">@style/Theme.DeviceDefault.Dialog.Alert</item>
-        <item name="android:windowIsTranslucent">false</item>
-        <item name="android:popupWindowStyle">@style/Theme.DeviceDefault.Dialog.Alert</item>
-        <item name="colorPrimary">@color/backgroundColorPrimary</item>
-        <item name="colorPrimaryDark">@color/backgroundColorDarkPrimary</item>
-        <item name="colorAccent">@color/widgetColorPrimary</item>
-        <item name="android:windowBackground">@color/backgroundColorPrimary</item>
-        <item name="android:textColor">@color/normal_text_color</item>
-        <item name="android:textSize">@dimen/text_size_title_small</item>
-        <item name="android:textColorHint">@color/light_text_color</item>
-        <item name="android:popupMenuStyle">@style/CustomPopupMenu</item>
-        <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:listDivider">@drawable/list_divider</item>
-        <item name="android:windowEnableSplitTouch">false</item>
-        <item name="android:splitMotionEvents">false</item>
-    </style>
-
-    <style name="NoTitleFullscreen" parent="BaseAppTheme">
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:windowEnterAnimation">@null</item>
-        <item name="android:windowExitAnimation">@null</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 
-    <style name="CustomPopupMenu" parent="@style/Widget.AppCompat.Light.PopupMenu">
-        <item name="android:popupBackground">@android:color/black</item>
+
+    <style name="Divider">
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/normal_divider</item>
     </style>
 
-    <style name="Theme.DeviceDefault.Dialog.Alert" parent="@android:style/Theme.Holo.Light.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
-        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    <style name="TabBottomText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:textSize">@dimen/text_size_tab_small</item>
+        <item name="android:textColor">@color/widgetColorPrimary</item>
     </style>
 
-    <style name="DialogTheme" parent="@style/Theme.AppCompat.Light.Dialog">
-        <item name="android:windowBackground">@null</item>
-    </style>
 
-    <!--聊天会话列表顶部，营销顶部tab-->
-    <style name="TabIndicatorFixed">
+    <style name="TabIndicatorLevel1"> <!--一级tab的风格-->
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/tab_height_level1</item>
-        <item name="android:layout_marginLeft">20dp</item>
-        <item name="indicatorMode">fixed</item>
-        <item name="android:background">@color/windowBackgroundColor</item>
-        <item name="tabIndicatorColor">@color/widgetColorPrimary</item>
-        <item name="tabIndicatorHeight">@dimen/page_indicator_height</item>
-        <item name="tabIndicatorWidth">0dp</item>
-        <item name="tabItemSpacing">15dp</item>
-        <item name="tabLayoutMode">tile</item>
+        <item name="textSize">@dimen/text_size_sub_small</item>
         <item name="tabSelectedTextColor">@color/widgetColorPrimary</item>
+        <item name="android:gravity">center_vertical</item>
         <item name="tabTextColor">@color/dark_text_color</item>
-        <item name="textSize">20sp</item>
+        <item name="tabIndicatorHeight">@dimen/page_indicator_height</item>
+        <item name="tabIndicatorColor">@color/widgetColorPrimary</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="indicatorMode">fixed</item>
+        <item name="tabIndicatorWidth">20dp</item>
+        <item name="android:background">@color/normal_background</item>
+
+        <item name="viewPagerId">@id/viewpager</item>
     </style>
 
+
+    <declare-styleable name="CleanEditText">
+        <attr name="hint" />
+        <attr name="hintColor" />
+        <attr name="leftImage" format="reference" />
+        <attr name="textSize" />
+        <attr name="textColor" />
+        <attr name="maxLength" />
+        <attr name="isNumber" format="reference|boolean" />
+        <attr name="isPassword" format="reference|boolean" />
+        <attr name="hideDelBtn" format="reference|boolean" />
+        <attr name="noBackground" format="boolean" />
+        <attr name="isDarkBackground" format="reference|boolean" />
+        <attr name="forbidSpecialCharacter" format="reference|boolean" />
+    </declare-styleable>
+
+
+    <!-- 编辑框 -->
+    <style name="normalEditText">
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#101010</item>
+        <item name="android:textColorHint">#bbb</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+
+    <style name="Dialog_TitleText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dialog_title_margin_top</item>
+        <item name="android:textSize">@dimen/dialog_title_text_size</item>
+        <item name="android:textColor">@color/dark_text_color</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingLeft">@dimen/window_padding_left</item>
+        <item name="android:paddingRight">@dimen/window_padding_left</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Dialog_Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/dialog_button_text_size</item>
+    </style>
+
+    <style name="Dialog_MessageText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dialog_message_margin_top</item>
+        <item name="android:minHeight">@dimen/dialog_message_min_height</item>
+        <item name="android:paddingBottom">@dimen/dialog_message_margin_top</item>
+        <item name="android:textSize">@dimen/dialog_title_text_size</item>
+        <item name="android:textColor">@color/dark_text_color</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingLeft">@dimen/window_padding_left</item>
+        <item name="android:paddingRight">@dimen/window_padding_left</item>
+    </style>
 </resources>

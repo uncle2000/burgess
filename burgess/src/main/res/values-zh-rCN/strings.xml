@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="just_now">刚刚</string>
+    <string name="hour_before">小时前</string>
+</resources>

@@ -15,7 +15,11 @@ import com.qmuiteam.qmui.util.QMUIStatusBarHelper
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.uncle2000.libbase.MyContextWrapper.*
-import com.uncle2000.libutils.SharedValueUtils
+import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE
+import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE_CHINA
+import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE_ENGLISH
+import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE_HK
+import com.uncle2000.libbase.libutils.SharedValueUtils
 import java.util.*
 
 /**

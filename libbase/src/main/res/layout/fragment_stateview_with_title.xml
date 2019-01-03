@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.uncle2000.libviews.TitleView
+        <com.uncle2000.libbase.libviews.TitleView
             android:id="@+id/title_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

@@ -1,0 +1,10 @@
+<resources>
+    <string name="just_now">剛剛</string>
+    <string name="hour_before">小時前</string>
+
+    <!-- 空省界面 -->
+    <string name="nothing">这里什么都没有~</string>
+    <string name="search_no_data">没有找到符合条件的结果</string>
+    <string name="net_error">服务器在偷懒,点击空白处刷新</string>
+    <string name="no_network">无网络连接，请开启网络后重试</string>
+</resources>

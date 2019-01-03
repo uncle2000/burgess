@@ -4,4 +4,48 @@
     <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#FF4081</color>
     <color name="widgetColorPrimary3">#10009688</color>
+
+    <color name="backgroundColorPrimary">#ffffff</color><!-- C1 -->
+    <color name="backgroundColorDarkPrimary">#fff</color><!-- 状态栏颜色 -->
+    <color name="widgetColorPrimary">#ff009688</color><!-- C8 -->
+    <color name="windowBackground">#fff4f4f4</color><!-- C8 -->
+
+
+    <color name="colorMain">#ff009688</color>
+    <color name="windowBackgroundColor">#ffffff</color>
+    <color name="buttonBackgroundColorDisabled">#a0dddddd</color>
+    <color name="buttonBackgroundColorPressed">#ff009688</color>
+    <color name="widgetColorPrimary2">#25009688</color>
+    <color name="background_alpha">#88ffffff</color>
+
+    <color name="divider">#e8e8e8</color>
+    <color name="gray_1">#ff959499</color>
+    <color name="gray_2">#999</color>
+
+
+    <!-- background color -->
+    <color name="normal_background">#ffffffff</color>
+    <color name="dark_background">#fff5f5f5</color><!-- C2 -->
+    <color name="disable_btn_background">#ffcccccc</color><!--  -->
+
+    <!-- text color -->
+    <color name="light_text_color">#ff959499</color><!-- C5 -->
+    <color name="normal_text_color">#ff666666</color><!-- C6 -->
+    <color name="dark_text_color">#ff101010</color><!-- C7 -->
+
+    <!-- divider -->
+    <color name="normal_divider">#ffdcdcdc</color><!-- C4 -->
+    <color name="dark_divider">#ffeeeeee</color><!-- C3 -->
+
+    <!-- emphasize/强调 -->
+    <color name="color_warning">#ffff3323</color>
+
+    <color name="gray_et_bg">#ededee</color><!-- C9 -->
+
+    <color name="defaults_title_text_color">#FF101010</color>
+    <color name="defaults_sub_title_text_color">#FF696969</color>
+    <color name="defaults_other_title_text_color">#FF333333</color>
+    <color name="defaults_white_text_color">#FFffffff</color>
+    <color name="defaults_divider_color">#FFf4f4f4</color>
+
 </resources>
