@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libviews.dialog
+package com.uncle2000.libviews.dialog
 
 import android.content.DialogInterface
 import android.databinding.DataBindingUtil

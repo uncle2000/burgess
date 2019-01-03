@@ -3,7 +3,8 @@ package com.uncle2000.mylibsuploadcontainer
 import android.os.Bundle
 import android.widget.Button
 import com.uncle2000.libbase.BaseFragmentActivity
-import com.uncle2000.libbase.MyContextWrapper.LANGUAGE_ENGLISH
+import com.uncle2000.libbase.ChangeLanguageHelper
+import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE_ENGLISH
 
 class MainActivity : BaseFragmentActivity() {
 
@@ -17,7 +18,7 @@ class MainActivity : BaseFragmentActivity() {
 
             ChangeLanguageHelper.changeLanguage(this, LANGUAGE_ENGLISH)
 
-            BaseFragmentActivity.go(this, XxFragment::class.java)
+//            BaseFragmentActivity.go(this, XxFragment::class.java)
 
         }
     }

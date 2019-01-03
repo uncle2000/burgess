@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libimagecache;
+package com.uncle2000.libimagecache;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -9,8 +9,5 @@ class App : Application() {
 //        Density.setDensity(this)
 
         SharedValueUtils.init(this)
-        com.uncle2000.libutils.App.setInstance(this)
-        com.uncle2000.libbase.App.setInstance(this)
-        com.uncle2000.libimagecache.App.setInstance(this)
     }
 }

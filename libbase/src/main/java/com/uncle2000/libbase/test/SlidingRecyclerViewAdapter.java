@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.uncle2000.libbase.R;
 import com.uncle2000.libbase.databinding.SlidingMenuContainerItemBinding;
-import com.uncle2000.libbase.libviews.SlidingButtonView;
+import com.uncle2000.libviews.SlidingButtonView;
 
 import org.jetbrains.annotations.NotNull;
 

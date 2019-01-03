@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libnet
+package com.uncle2000.libnet
 
 /**
  * Created by danger on 16/6/18.

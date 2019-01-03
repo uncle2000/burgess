@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libnet;
+package com.uncle2000.libnet;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

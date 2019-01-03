@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libviews
+package com.uncle2000.libviews
 
 /*
   Created by MJJ on 2015/7/25.

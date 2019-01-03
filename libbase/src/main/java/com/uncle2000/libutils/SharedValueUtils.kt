@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libutils
+package com.uncle2000.libutils
 
 import android.content.Context
 import com.google.gson.Gson

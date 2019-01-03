@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libviews
+package com.uncle2000.libviews
 
 import android.content.Context
 import android.content.res.TypedArray

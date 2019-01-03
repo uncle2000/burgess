@@ -9,7 +9,7 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.uncle2000.libbase.BaseFragment
 import com.uncle2000.libbase.R
-import com.uncle2000.libbase.libviews.TitleView
+import com.uncle2000.libviews.TitleView
 
 abstract class ListFragment<T> : BaseFragment() {
     private var loading: Boolean = false

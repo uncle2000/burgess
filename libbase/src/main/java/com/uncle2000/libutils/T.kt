@@ -1,10 +1,11 @@
-package com.uncle2000.libbase.libutils
+package com.uncle2000.libutils
 
 import android.os.Looper
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.uncle2000.libbase.App
 
 
 /**

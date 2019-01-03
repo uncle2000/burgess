@@ -1,8 +1,9 @@
-package com.uncle2000.libbase.libutils
+package com.uncle2000.libutils
 
 import android.os.Environment
 import android.os.Process
 import android.util.Log
+import com.uncle2000.libbase.App
 
 import java.io.File
 import java.io.FileOutputStream

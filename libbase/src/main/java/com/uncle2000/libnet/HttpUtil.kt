@@ -1,8 +1,8 @@
-package com.uncle2000.libbase.libnet
+package com.uncle2000.libnet
 
 
 import com.google.gson.GsonBuilder
-import com.uncle2000.libbase.libutils.L
+import com.uncle2000.libutils.L
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -24,7 +24,10 @@ object HttpUtil {
         host = if (host.startsWith("http")) host else "http://$host"
 
         val loggingInterceptor =
-            HttpLoggingInterceptor { message -> L.get(TAG).e(TAG, message) }.setLevel(HttpLoggingInterceptor.Level.BODY)
+            HttpLoggingInterceptor { message ->
+                L.get(TAG)
+                    .e(TAG, message)
+            }.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val gson = GsonBuilder()
             .setLenient()

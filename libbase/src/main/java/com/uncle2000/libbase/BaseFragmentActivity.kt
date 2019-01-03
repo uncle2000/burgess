@@ -19,7 +19,7 @@ import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE
 import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE_CHINA
 import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE_ENGLISH
 import com.uncle2000.libbase.MyContextWrapper.Companion.LANGUAGE_HK
-import com.uncle2000.libbase.libutils.SharedValueUtils
+import com.uncle2000.libutils.SharedValueUtils
 import java.util.*
 
 /**

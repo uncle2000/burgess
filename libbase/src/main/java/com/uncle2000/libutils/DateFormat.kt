@@ -1,10 +1,9 @@
-package com.uncle2000.libbase.libutils
+package com.uncle2000.libutils
 
+import com.uncle2000.libbase.App
 import com.uncle2000.libbase.R
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Date
-import java.util.Locale
+import java.util.*
 
 object DateFormat {
     val YEAR_TIME = 1000
@@ -450,18 +449,20 @@ object DateFormat {
 
         if (nowCalendar.get(Calendar.YEAR) == dateCalendar.get(Calendar.YEAR)
 
-                && nowCalendar.get(Calendar.MONTH) == dateCalendar.get(Calendar.MONTH)
+            && nowCalendar.get(Calendar.MONTH) == dateCalendar.get(Calendar.MONTH)
 
-                && nowCalendar.get(Calendar.DATE) == dateCalendar.get(Calendar.DATE)) {
+            && nowCalendar.get(Calendar.DATE) == dateCalendar.get(Calendar.DATE)
+        ) {
 
             return 1
         } else if (nowCalendar.get(Calendar.YEAR) != dateCalendar.get(Calendar.YEAR)) {
             return -1
         } else if (nowCalendar.get(Calendar.YEAR) == dateCalendar.get(Calendar.YEAR)
 
-                && nowCalendar.get(Calendar.MONTH) == dateCalendar.get(Calendar.MONTH)
+            && nowCalendar.get(Calendar.MONTH) == dateCalendar.get(Calendar.MONTH)
 
-                && nowCalendar.get(Calendar.DATE) != dateCalendar.get(Calendar.DATE)) {
+            && nowCalendar.get(Calendar.DATE) != dateCalendar.get(Calendar.DATE)
+        ) {
             return 0
         }
         return -1

@@ -2,12 +2,9 @@ package com.uncle2000.libbase
 
 import android.content.Context
 import android.content.ContextWrapper
-import android.content.res.Configuration
-import android.content.res.Resources
 import android.os.Build
 import android.os.LocaleList
-
-import java.util.Locale
+import java.util.*
 
 class MyContextWrapper(base: Context) : android.content.ContextWrapper(base) {
     companion object {

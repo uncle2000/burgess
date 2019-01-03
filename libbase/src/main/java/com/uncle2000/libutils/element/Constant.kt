@@ -1,4 +1,4 @@
-package com.uncle2000.libbase.libutils.element
+package com.uncle2000.libutils.element
 
 object Constant {
     val PREF_NAME = "lyz_pref.dat"
