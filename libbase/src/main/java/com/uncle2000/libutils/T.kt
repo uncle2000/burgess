@@ -5,7 +5,7 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.uncle2000.libbase.App
+import com.uncle2000.App
 
 
 /**

@@ -3,7 +3,7 @@ package com.uncle2000.libutils
 import android.os.Environment
 import android.os.Process
 import android.util.Log
-import com.uncle2000.libbase.App
+import com.uncle2000.App
 
 import java.io.File
 import java.io.FileOutputStream

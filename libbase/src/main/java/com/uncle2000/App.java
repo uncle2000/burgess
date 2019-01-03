@@ -1,4 +1,4 @@
-package com.uncle2000.libbase;
+package com.uncle2000;
 
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;

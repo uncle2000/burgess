@@ -1,6 +1,6 @@
 package com.uncle2000.libutils
 
-import com.uncle2000.libbase.App
+import com.uncle2000.App
 import com.uncle2000.libbase.R
 import java.text.SimpleDateFormat
 import java.util.*
